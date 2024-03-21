@@ -19,10 +19,7 @@ type Config struct {
 	EmailSenderName      string        `mapstructure:"EMAIL_SENDER_NAME"`
 	EmailSenderAddress   string        `mapstructure:"EMAIL_SENDER_ADDRESS"`
 	EmailSenderPassword  string        `mapstructure:"EMAIL_SENDER_PASSWORD"`
-	GoogleConfig
-}
-
-type GoogleConfig struct {
+	//google configuration
 	GoogleCientID        string `mapstructure:"GOOGLECLIENTID"`
 	GoogleClientSecret   string `mapstructure:"GOOGLECLIENTSECRET"`
 	GoogleRedirectURL    string `mapstructure:"GOOGLEREDIRECTURL"`

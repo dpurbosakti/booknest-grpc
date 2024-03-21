@@ -23,7 +23,6 @@ type Server struct {
 }
 
 func NewServer(config config.Config, store db.Store) (*Server, error) {
-
 	server := &Server{
 		config:    config,
 		store:     store,
@@ -31,7 +30,6 @@ func NewServer(config config.Config, store db.Store) (*Server, error) {
 	}
 
 	server.setupRouter()
-
 	return server, nil
 }
 
@@ -91,6 +89,7 @@ func (server *Server) setupRouter() {
 
 	auth := router.Group("/auth")
 	auth.GET("/v1/google/login", server.GoogleLogin)
+	auth.GET("/google/callback", server.GoogleCallback)
 
 	server.router = router
 }
