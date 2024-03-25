@@ -17,7 +17,7 @@ type GoogleResponse struct {
 	OauthAccessToken string `json:"oauth_access_token"`
 }
 
-func (server *Server) GoogleLogin(c echo.Context) error {
+func (server *Server) googleLogin(c echo.Context) error {
 
 	url := server.googleCfg.AuthCodeURL(server.config.GoogleState)
 
@@ -41,7 +41,7 @@ func getGoogleCfg(config config.Config) *oauth2.Config {
 	return conf
 }
 
-func (server *Server) GoogleCallback(c echo.Context) error {
+func (server *Server) googleCallback(c echo.Context) error {
 
 	// state
 	state := c.QueryParam("state")

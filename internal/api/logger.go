@@ -1,5 +1,13 @@
 package api
 
+import (
+	"net/http"
+	"time"
+
+	"github.com/labstack/echo/v4"
+	"github.com/rs/zerolog/log"
+)
+
 // import (
 // 	"net/http"
 
@@ -35,3 +43,31 @@ package api
 // 		return next(c)
 // 	}
 // }
+
+func LoggerMiddleware(next echo.HandlerFunc) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		start := time.Now()
+
+		if err := next(c); err != nil {
+			c.Error(err)
+		}
+
+		end := time.Now()
+		latency := end.Sub(start)
+
+		logger := log.Info()
+		status := c.Response().Status
+		if status != http.StatusOK {
+			logger = log.Error()
+		}
+		// Log request details using Zerolog
+		logger.
+			Str("method", c.Request().Method).
+			Str("uri", c.Request().RequestURI).
+			Int("status", status).
+			Dur("latency", latency).
+			Msg("request handled")
+
+		return nil
+	}
+}

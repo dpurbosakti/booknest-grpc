@@ -12,7 +12,6 @@ import (
 	"github.com/dpurbosakti/booknest-grpc/internal/config"
 	db "github.com/dpurbosakti/booknest-grpc/internal/db/sqlc"
 	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
 )
 
 type Server struct {
@@ -70,26 +69,15 @@ func RunEchoServer(ctx context.Context, waitGroup *errgroup.Group, config config
 
 func (server *Server) setupRouter() {
 	router := echo.New()
-	logger := log.Info()
-	router.Use(middleware.RequestLoggerWithConfig(middleware.RequestLoggerConfig{
-		LogURI:    true,
-		LogStatus: true,
-		LogValuesFunc: func(c echo.Context, v middleware.RequestLoggerValues) error {
-			logger.
-				Str("URI", v.URI).
-				Int("status", v.Status).
-				Msg("request")
 
-			return nil
-		},
-	}))
-	router.GET("/health-check", func(c echo.Context) error {
-		return c.JSON(http.StatusOK, "ok")
-	})
+	router.Use(LoggerMiddleware)
+	router.Static("/assets", "internal/assets")
+	router.GET("/ping", server.ping)
+	router.GET("/v1/verify_email", server.verify_email)
 
 	auth := router.Group("/auth")
-	auth.GET("/v1/google/login", server.GoogleLogin)
-	auth.GET("/google/callback", server.GoogleCallback)
+	auth.GET("/v1/google/login", server.googleLogin)
+	auth.GET("/google/callback", server.googleCallback)
 
 	server.router = router
 }
@@ -100,4 +88,20 @@ func (server *Server) Start(address string) error {
 
 func (server *Server) Shutdown(ctx context.Context) error {
 	return server.router.Shutdown(ctx)
+}
+
+type ResponseRecorder struct {
+	http.ResponseWriter
+	StatusCode int
+	Body       []byte
+}
+
+func (rec *ResponseRecorder) WriteHeader(statusCode int) {
+	rec.StatusCode = statusCode
+	rec.ResponseWriter.WriteHeader(statusCode)
+}
+
+func (rec *ResponseRecorder) Write(body []byte) (int, error) {
+	rec.Body = body
+	return rec.ResponseWriter.Write(body)
 }

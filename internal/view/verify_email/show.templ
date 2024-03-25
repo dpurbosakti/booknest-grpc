@@ -1,0 +1,43 @@
+package verify_email
+
+templ Show(username string) {
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../../assets/favicon/booknest.png"/>
+    <title>User Verification Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        .success-message {
+            color: #008000;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{username} Verification Successful</h1>
+        <p class="success-message">Your account has been successfully verified.</p>
+    <img style="width: 250px;height: 250px;" src="../../assets/images/booknest.png" alt="booknest"/>
+    </div>
+    <script>
+        // Display an alert with a welcome message
+        alert("Welcome to Booknest");
+    </script>
+</body>
+</html>
+
+
+}

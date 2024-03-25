@@ -42,6 +42,10 @@ redisrun:
 sqlc:
 	sqlc generate
 
+## templ: generate templ file
+templ:
+	templ generate
+
 ## proto: generate go code from proto
 proto:
 	rm -f internal/pb/*.go
@@ -54,4 +58,4 @@ proto:
 server:
 	go run cmd/app/main.go
 
-.PHONY: help createdb new_migration migrateup migrateup1 migratedown migratedown1 postgresrun redisrun proto server sqlc
+.PHONY: help createdb new_migration migrateup migrateup1 migratedown migratedown1 postgresrun redisrun templ proto server sqlc
