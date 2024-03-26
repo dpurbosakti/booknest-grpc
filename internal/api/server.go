@@ -73,6 +73,7 @@ func (server *Server) setupRouter() {
 	router.Use(LoggerMiddleware)
 	router.Static("/assets", "internal/assets")
 	router.GET("/ping", server.ping)
+	router.GET("/home", server.home)
 	router.GET("/v1/verify_email", server.verify_email)
 
 	auth := router.Group("/auth")
