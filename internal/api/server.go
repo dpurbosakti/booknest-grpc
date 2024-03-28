@@ -3,15 +3,21 @@ package api
 import (
 	"context"
 	"errors"
+	"fmt"
 	"net/http"
+	"os"
 
+	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"golang.org/x/oauth2"
 	"golang.org/x/sync/errgroup"
 
 	"github.com/dpurbosakti/booknest-grpc/internal/config"
 	db "github.com/dpurbosakti/booknest-grpc/internal/db/sqlc"
+	"github.com/getsentry/sentry-go"
+	sentryecho "github.com/getsentry/sentry-go/echo"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 type Server struct {
@@ -67,10 +73,43 @@ func RunEchoServer(ctx context.Context, waitGroup *errgroup.Group, config config
 	})
 }
 
+func configSentry() {
+	// To initialize Sentry's handler, you need to initialize Sentry itself beforehand
+	if err := sentry.Init(sentry.ClientOptions{
+		Dsn: "https://334e57cc8ce5f326c1027e3a715f5849@o4506986005987328.ingest.us.sentry.io/4506986019618816",
+		// Set TracesSampleRate to 1.0 to capture 100%
+		// of transactions for performance monitoring.
+		// We recommend adjusting this value in production,
+		TracesSampleRate: 1.0,
+	}); err != nil {
+		fmt.Printf("Sentry initialization failed: %v", err)
+	}
+}
+
 func (server *Server) setupRouter() {
 	router := echo.New()
 
-	router.Use(LoggerMiddleware)
+	// router.Use(LoggerMiddleware)
+	router.Use(middleware.Recover())
+
+	configSentry()
+	// Open the log file for writing
+	file, err := os.OpenFile("logfile.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatal().Err(err).Msg("Failed to open log file")
+	}
+	defer file.Close()
+
+	// Create a zerolog file writer
+	fileLogger := zerolog.New(file).With().Timestamp().Logger()
+	router.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+		Output: fileLogger,
+	}))
+	router.Logger = &SentryLogger{
+		FileLogger: fileLogger,
+	}
+	router.Use(sentryecho.New(sentryecho.Options{}))
+	sentry.CaptureMessage("It works")
 	router.Static("/assets", "internal/assets")
 	router.GET("/ping", server.ping)
 	router.GET("/home", server.home)
@@ -105,4 +144,17 @@ func (rec *ResponseRecorder) WriteHeader(statusCode int) {
 func (rec *ResponseRecorder) Write(body []byte) (int, error) {
 	rec.Body = body
 	return rec.ResponseWriter.Write(body)
+}
+
+// SentryLogger is a custom logger that logs to both a file and Sentry.
+type SentryLogger struct {
+	FileLogger zerolog.Logger
+}
+
+// Println prints a log message to both file and Sentry.
+func (l *SentryLogger) Println(args ...interface{}) {
+	l.FileLogger.Print(args...)
+	if len(args) > 0 {
+		sentry.CaptureMessage(fmt.Sprintf("%v", args[0]))
+	}
 }
