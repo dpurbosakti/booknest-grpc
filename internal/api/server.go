@@ -87,6 +87,7 @@ func (server *Server) setupRouter() {
 
 	setupLogger()
 	router.Use(LoggerMiddleware)
+	router.HTTPErrorHandler = customHTTPErrorHandler
 	// router.Use(middleware.Recover())
 
 	// configSentry()
