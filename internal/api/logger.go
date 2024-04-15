@@ -82,7 +82,4 @@ func setupLogger() {
 	)
 	multi := zerolog.MultiLevelWriter(os.Stdout, runLogFile)
 	log.Logger = zerolog.New(multi).With().Timestamp().Logger()
-
-	log.Info().Msg("Hello World!")
-
 }

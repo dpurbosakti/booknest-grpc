@@ -8,3 +8,15 @@
 {"level":"info","time":"2024-04-15T09:44:20+07:00","message":"Starting processing"}
 {"level":"info","method":"GET","uri":"/ping","status":200,"latency":0.0058,"time":"2024-04-15T09:44:40+07:00","message":"request handled"}
 {"level":"error","method":"GET","uri":"/pingping","status":404,"latency":0.0193,"time":"2024-04-15T09:45:20+07:00","message":"request handled"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"graceful shudown echo server"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"graceful shutdown gRPC server"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"graceful shudown HTTP gateway server"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"graceful shutdown task processor"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"Starting graceful shutdown"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"gRPC server is stopped"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"HTTP gateway server is stopped"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"echo server is stopped"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"Waiting for all workers to finish..."}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"All workers have finished"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"Exiting"}
+{"level":"info","time":"2024-04-15T09:52:36+07:00","message":"task processor is stopped"}
