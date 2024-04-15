@@ -5,9 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"os"
 
-	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"golang.org/x/oauth2"
 	"golang.org/x/sync/errgroup"
@@ -15,9 +13,7 @@ import (
 	"github.com/dpurbosakti/booknest-grpc/internal/config"
 	db "github.com/dpurbosakti/booknest-grpc/internal/db/sqlc"
 	"github.com/getsentry/sentry-go"
-	sentryecho "github.com/getsentry/sentry-go/echo"
 	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
 )
 
 type Server struct {
@@ -89,27 +85,28 @@ func configSentry() {
 func (server *Server) setupRouter() {
 	router := echo.New()
 
-	// router.Use(LoggerMiddleware)
-	router.Use(middleware.Recover())
+	setupLogger()
+	router.Use(LoggerMiddleware)
+	// router.Use(middleware.Recover())
 
-	configSentry()
-	// Open the log file for writing
-	file, err := os.OpenFile("logfile.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	if err != nil {
-		log.Fatal().Err(err).Msg("Failed to open log file")
-	}
-	defer file.Close()
+	// configSentry()
+	// // Open the log file for writing
+	// file, err := os.OpenFile("logfile.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	// if err != nil {
+	// 	log.Fatal().Err(err).Msg("Failed to open log file")
+	// }
+	// defer file.Close()
 
 	// Create a zerolog file writer
-	fileLogger := zerolog.New(file).With().Timestamp().Logger()
-	router.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
-		Output: fileLogger,
-	}))
-	router.Logger = &SentryLogger{
-		FileLogger: fileLogger,
-	}
-	router.Use(sentryecho.New(sentryecho.Options{}))
-	sentry.CaptureMessage("It works")
+	// fileLogger := zerolog.New(file).With().Timestamp().Logger()
+	// router.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+	// 	Output: fileLogger,
+	// }))
+	// router.Logger = &SentryLogger{
+	// 	FileLogger: fileLogger,
+	// }
+	// router.Use(sentryecho.New(sentryecho.Options{}))
+	// sentry.CaptureMessage("It works")
 	router.Static("/assets", "internal/assets")
 	router.GET("/ping", server.ping)
 	router.GET("/home", server.home)
@@ -146,15 +143,15 @@ func (rec *ResponseRecorder) Write(body []byte) (int, error) {
 	return rec.ResponseWriter.Write(body)
 }
 
-// SentryLogger is a custom logger that logs to both a file and Sentry.
-type SentryLogger struct {
-	FileLogger zerolog.Logger
-}
+// // SentryLogger is a custom logger that logs to both a file and Sentry.
+// type SentryLogger struct {
+// 	FileLogger zerolog.Logger
+// }
 
-// Println prints a log message to both file and Sentry.
-func (l *SentryLogger) Println(args ...interface{}) {
-	l.FileLogger.Print(args...)
-	if len(args) > 0 {
-		sentry.CaptureMessage(fmt.Sprintf("%v", args[0]))
-	}
-}
+// // Println prints a log message to both file and Sentry.
+// func (l *SentryLogger) Println(args ...interface{}) {
+// 	l.FileLogger.Print(args...)
+// 	if len(args) > 0 {
+// 		sentry.CaptureMessage(fmt.Sprintf("%v", args[0]))
+// 	}
+// }
