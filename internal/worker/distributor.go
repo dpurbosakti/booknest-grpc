@@ -12,6 +12,11 @@ type TaskDistributor interface {
 		payload *PayloadSendVerifyEmail,
 		opts ...asynq.Option,
 	) error
+	DistributeTaskSaveToExcel(
+		ctx context.Context,
+		payload *PayloadSaveToExcel,
+		opts ...asynq.Option,
+	) error
 }
 
 type RedisTaskDistributor struct {

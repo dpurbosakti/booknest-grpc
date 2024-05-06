@@ -28,7 +28,7 @@ func (server *Server) CreateUser(ctx context.Context, req *pb.CreateUserRequest)
 			Email:          req.GetEmail(),
 		},
 		AfterCreate: func(user db.User) error {
-			taskPayload := &worker.PayloadSendVerifyEmail{
+			taskSendVerifyEmailPayload := &worker.PayloadSendVerifyEmail{
 				Username: user.Name,
 			}
 
@@ -38,8 +38,21 @@ func (server *Server) CreateUser(ctx context.Context, req *pb.CreateUserRequest)
 				asynq.Queue(worker.QueueCritical),
 			}
 
-			return server.taskDistributor.DistributeTaskSendVerifyEmail(ctx, taskPayload, opts...)
+			err := server.taskDistributor.DistributeTaskSendVerifyEmail(ctx, taskSendVerifyEmailPayload, opts...)
+			if err != nil {
+				return err
+			}
 
+			taskSaveToExcel := &worker.PayloadSaveToExcel{
+				Username: user.Name,
+			}
+
+			err = server.taskDistributor.DistributeTaskSaveToExcel(ctx, taskSaveToExcel, opts...)
+			if err != nil {
+				return err
+			}
+
+			return nil
 		},
 	}
 

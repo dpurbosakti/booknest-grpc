@@ -56,3 +56,170 @@
 {"level":"info","time":"2024-04-15T13:28:41+07:00","message":"All workers have finished"}
 {"level":"info","time":"2024-04-15T13:28:41+07:00","message":"Exiting"}
 {"level":"info","time":"2024-04-15T13:28:41+07:00","message":"task processor is stopped"}
+{"level":"info","time":"2024-05-06T08:03:28+07:00","message":"start echo server at 0.0.0.0:7070"}
+{"level":"info","time":"2024-05-06T08:03:28+07:00","message":"start HTTP gateaway server at 0.0.0.0:8080"}
+{"level":"info","time":"2024-05-06T08:03:28+07:00","message":"start gRPC server at [::]:9090"}
+{"level":"info","time":"2024-05-06T08:03:28+07:00","message":"start task processor"}
+{"level":"info","time":"2024-05-06T08:03:28+07:00","message":"Starting processing"}
+{"level":"error","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":6,"status_text":"AlreadyExists","duration":117.557863,"time":"2024-05-06T08:04:08+07:00","message":"received a gRPC request"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"moko2311\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:04:16+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"moko2311\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:04:16+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":67.103348,"time":"2024-05-06T08:04:16+07:00","message":"received a gRPC request"}
+{"level":"error","error":"handler not found for task \"task:save_to_excel\"","type":"task:save_to_excel","payload":"{\"username\":\"moko2311\"}","time":"2024-05-06T08:04:28+07:00","message":"process task failed"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"moko2311\"}","email":"dwiatmokop1@gmail.com","time":"2024-05-06T08:04:33+07:00","message":"processed task"}
+{"level":"error","error":"handler not found for task \"task:save_to_excel\"","type":"task:save_to_excel","payload":"{\"username\":\"moko2311\"}","time":"2024-05-06T08:04:58+07:00","message":"process task failed"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"graceful shudown echo server"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"graceful shutdown gRPC server"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"graceful shudown HTTP gateway server"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"graceful shutdown task processor"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"Starting graceful shutdown"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"HTTP gateway server is stopped"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"echo server is stopped"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"gRPC server is stopped"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"Waiting for all workers to finish..."}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"All workers have finished"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"Exiting"}
+{"level":"info","time":"2024-05-06T08:05:02+07:00","message":"task processor is stopped"}
+{"level":"info","time":"2024-05-06T08:09:44+07:00","message":"start echo server at 0.0.0.0:7070"}
+{"level":"info","time":"2024-05-06T08:09:44+07:00","message":"start HTTP gateaway server at 0.0.0.0:8080"}
+{"level":"info","time":"2024-05-06T08:09:44+07:00","message":"start gRPC server at [::]:9090"}
+{"level":"info","time":"2024-05-06T08:09:44+07:00","message":"start task processor"}
+{"level":"info","time":"2024-05-06T08:09:44+07:00","message":"Starting processing"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"moko2311\"}","email":"dwiatmokop1@gmail.com","time":"2024-05-06T08:09:49+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:11:35+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:11:35+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":66.556056,"time":"2024-05-06T08:11:35+07:00","message":"received a gRPC request"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti\"}","email":"sirensym@gmail.com","time":"2024-05-06T08:11:49+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti\"}","email":"sirensym@gmail.com","time":"2024-05-06T08:11:52+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti1\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:13:42+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti1\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:13:42+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":63.626808,"time":"2024-05-06T08:13:42+07:00","message":"received a gRPC request"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti1\"}","email":"sirensym1@gmail.com","time":"2024-05-06T08:13:55+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti1\"}","email":"sirensym1@gmail.com","time":"2024-05-06T08:13:58+07:00","message":"processed task"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"graceful shudown echo server"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"graceful shudown HTTP gateway server"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"HTTP gateway server is stopped"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"graceful shutdown gRPC server"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"echo server is stopped"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"graceful shutdown task processor"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"Starting graceful shutdown"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"gRPC server is stopped"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"Waiting for all workers to finish..."}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"All workers have finished"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"Exiting"}
+{"level":"info","time":"2024-05-06T08:16:15+07:00","message":"task processor is stopped"}
+{"level":"info","time":"2024-05-06T08:16:17+07:00","message":"start HTTP gateaway server at 0.0.0.0:8080"}
+{"level":"info","time":"2024-05-06T08:16:17+07:00","message":"start echo server at 0.0.0.0:7070"}
+{"level":"info","time":"2024-05-06T08:16:17+07:00","message":"start task processor"}
+{"level":"info","time":"2024-05-06T08:16:17+07:00","message":"Starting processing"}
+{"level":"info","time":"2024-05-06T08:16:17+07:00","message":"start gRPC server at [::]:9090"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti2\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:16:34+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti2\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:16:34+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":72.754649,"time":"2024-05-06T08:16:34+07:00","message":"received a gRPC request"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti2\"}","email":"sirensym2@gmail.com","time":"2024-05-06T08:16:47+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti2\"}","email":"sirensym2@gmail.com","time":"2024-05-06T08:16:51+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti3\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:19:54+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti3\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:19:54+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":74.310244,"time":"2024-05-06T08:19:54+07:00","message":"received a gRPC request"}
+{"level":"error","time":"2024-05-06T08:20:08+07:00","message":"recovering from panic. See the stack trace below for details:\ngoroutine 146 [running]:\nruntime/debug.Stack()\n\t/snap/go/10585/src/runtime/debug/stack.go:24 +0x5e\ngithub.com/hibiken/asynq.(*processor).perform.func1()\n\t/home/moko/go/pkg/mod/github.com/hibiken/asynq@v0.24.1/processor.go:416 +0x58\npanic({0xfe3ce0?, 0xc0005e5530?})\n\t/snap/go/10585/src/runtime/panic.go:770 +0x132\ngithub.com/dpurbosakti/booknest-grpc/internal/util.nextEmptyColumn(0xe94b00?, {0x106e767?, 0x10262e0?})\n\t/mnt/d/belajar/be/go/moko/booknest-grpc/internal/util/excelize.go:81 +0x13d\ngithub.com/dpurbosakti/booknest-grpc/internal/util.writeUserToExcel({{0xb5, 0x23, 0xd, 0x27, 0x2c, 0xbc, 0x4f, 0x8b, 0xaa, 0x2a, ...}, ...}, ...)\n\t/mnt/d/belajar/be/go/moko/booknest-grpc/internal/util/excelize.go:13 +0x2b\ngithub.com/dpurbosakti/booknest-grpc/internal/util.WriteToExcel({{0xb5, 0x23, 0xd, 0x27, 0x2c, 0xbc, 0x4f, 0x8b, 0xaa, 0x2a, ...}, ...})\n\t/mnt/d/belajar/be/go/moko/booknest-grpc/internal/util/excelize.go:52 +0x158\ngithub.com/dpurbosakti/booknest-grpc/internal/worker.(*RedisTaskProcessor).ProcessTaskSaveToExcel(0xc00040ecc0, {0x11eada8, 0xc0005b63f0}, 0xc00041a690)\n\t/mnt/d/belajar/be/go/moko/booknest-grpc/internal/worker/task_save_to_excel.go:51 +0x238\ngithub.com/hibiken/asynq.HandlerFunc.ProcessTask(0xc0000b9ae0?, {0x11eada8?, 0xc0005b63f0?}, 0x7f8e609ce438?)\n\t/home/moko/go/pkg/mod/github.com/hibiken/asynq@v0.24.1/server.go:577 +0x29\ngithub.com/hibiken/asynq.(*ServeMux).ProcessTask(0x50?, {0x11eada8, 0xc0005b63f0}, 0xc00041a690)\n\t/home/moko/go/pkg/mod/github.com/hibiken/asynq@v0.24.1/servemux.go:51 +0x42\ngithub.com/hibiken/asynq.(*processor).perform(0x0?, {0x11eada8?, 0xc0005b63f0?}, 0x0?)\n\t/home/moko/go/pkg/mod/github.com/hibiken/asynq@v0.24.1/processor.go:432 +0x75\ngithub.com/hibiken/asynq.(*processor).exec.func1.3()\n\t/home/moko/go/pkg/mod/github.com/hibiken/asynq@v0.24.1/processor.go:230 +0x193\ncreated by github.com/hibiken/asynq.(*processor).exec.func1 in goroutine 97\n\t/home/moko/go/pkg/mod/github.com/hibiken/asynq@v0.24.1/processor.go:219 +0x234\n"}
+{"level":"error","error":"panic [/snap/go/10585/src/runtime/panic.go:114]: runtime error: index out of range [0] with length 0","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti3\"}","time":"2024-05-06T08:20:08+07:00","message":"process task failed"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti3\"}","email":"sirensym3@gmail.com","time":"2024-05-06T08:20:11+07:00","message":"processed task"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"graceful shudown HTTP gateway server"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"HTTP gateway server is stopped"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"graceful shudown echo server"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"graceful shutdown task processor"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"Starting graceful shutdown"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"echo server is stopped"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"graceful shutdown gRPC server"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"gRPC server is stopped"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"Waiting for all workers to finish..."}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"All workers have finished"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"Exiting"}
+{"level":"info","time":"2024-05-06T08:20:49+07:00","message":"task processor is stopped"}
+{"level":"info","time":"2024-05-06T08:27:04+07:00","message":"start echo server at 0.0.0.0:7070"}
+{"level":"info","time":"2024-05-06T08:27:04+07:00","message":"start task processor"}
+{"level":"info","time":"2024-05-06T08:27:04+07:00","message":"Starting processing"}
+{"level":"info","time":"2024-05-06T08:27:04+07:00","message":"start gRPC server at [::]:9090"}
+{"level":"info","time":"2024-05-06T08:27:04+07:00","message":"start HTTP gateaway server at 0.0.0.0:8080"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti3\"}","email":"sirensym3@gmail.com","time":"2024-05-06T08:27:09+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti4\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:27:13+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti4\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:27:13+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":74.369369,"time":"2024-05-06T08:27:13+07:00","message":"received a gRPC request"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti4\"}","email":"sirensym4@gmail.com","time":"2024-05-06T08:27:24+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti4\"}","email":"sirensym4@gmail.com","time":"2024-05-06T08:27:27+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti5\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:28:02+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti5\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:28:02+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":68.730041,"time":"2024-05-06T08:28:02+07:00","message":"received a gRPC request"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti5\"}","email":"sirensym5@gmail.com","time":"2024-05-06T08:28:14+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti5\"}","email":"sirensym5@gmail.com","time":"2024-05-06T08:28:17+07:00","message":"processed task"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"graceful shudown echo server"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"graceful shutdown gRPC server"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"graceful shutdown task processor"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"Starting graceful shutdown"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"echo server is stopped"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"graceful shudown HTTP gateway server"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"HTTP gateway server is stopped"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"gRPC server is stopped"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"Waiting for all workers to finish..."}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"All workers have finished"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"Exiting"}
+{"level":"info","time":"2024-05-06T08:34:46+07:00","message":"task processor is stopped"}
+{"level":"info","time":"2024-05-06T08:34:55+07:00","message":"start echo server at 0.0.0.0:7070"}
+{"level":"info","time":"2024-05-06T08:34:55+07:00","message":"start task processor"}
+{"level":"info","time":"2024-05-06T08:34:55+07:00","message":"Starting processing"}
+{"level":"info","time":"2024-05-06T08:34:55+07:00","message":"start gRPC server at [::]:9090"}
+{"level":"info","time":"2024-05-06T08:34:55+07:00","message":"start HTTP gateaway server at 0.0.0.0:8080"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"graceful shudown echo server"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"graceful shutdown gRPC server"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"graceful shutdown task processor"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"Starting graceful shutdown"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"echo server is stopped"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"gRPC server is stopped"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"graceful shudown HTTP gateway server"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"HTTP gateway server is stopped"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"Waiting for all workers to finish..."}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"All workers have finished"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"Exiting"}
+{"level":"info","time":"2024-05-06T08:35:17+07:00","message":"task processor is stopped"}
+{"level":"info","time":"2024-05-06T08:36:16+07:00","message":"start echo server at 0.0.0.0:7070"}
+{"level":"info","time":"2024-05-06T08:36:16+07:00","message":"start task processor"}
+{"level":"info","time":"2024-05-06T08:36:16+07:00","message":"start HTTP gateaway server at 0.0.0.0:8080"}
+{"level":"info","time":"2024-05-06T08:36:16+07:00","message":"start gRPC server at [::]:9090"}
+{"level":"info","time":"2024-05-06T08:36:16+07:00","message":"Starting processing"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti6\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:36:19+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti6\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:36:19+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":103.825413,"time":"2024-05-06T08:36:19+07:00","message":"received a gRPC request"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti6\"}","email":"sirensym6@gmail.com","time":"2024-05-06T08:36:31+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti6\"}","email":"sirensym6@gmail.com","time":"2024-05-06T08:36:34+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti7\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:36:55+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti7\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:36:55+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":92.53895,"time":"2024-05-06T08:36:55+07:00","message":"received a gRPC request"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti7\"}","email":"sirensym7@gmail.com","time":"2024-05-06T08:37:06+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti7\"}","email":"sirensym7@gmail.com","time":"2024-05-06T08:37:10+07:00","message":"processed task"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"graceful shudown echo server"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"graceful shutdown gRPC server"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"graceful shudown HTTP gateway server"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"graceful shutdown task processor"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"Starting graceful shutdown"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"HTTP gateway server is stopped"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"echo server is stopped"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"gRPC server is stopped"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"Waiting for all workers to finish..."}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"All workers have finished"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"Exiting"}
+{"level":"info","time":"2024-05-06T08:38:00+07:00","message":"task processor is stopped"}
+{"level":"info","time":"2024-05-06T08:38:19+07:00","message":"start echo server at 0.0.0.0:7070"}
+{"level":"info","time":"2024-05-06T08:38:19+07:00","message":"start HTTP gateaway server at 0.0.0.0:8080"}
+{"level":"info","time":"2024-05-06T08:38:19+07:00","message":"start gRPC server at [::]:9090"}
+{"level":"info","time":"2024-05-06T08:38:19+07:00","message":"start task processor"}
+{"level":"info","time":"2024-05-06T08:38:19+07:00","message":"Starting processing"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti8\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:38:27+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti8\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:38:27+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":85.8274,"time":"2024-05-06T08:38:27+07:00","message":"received a gRPC request"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti8\"}","email":"sirensym8@gmail.com","time":"2024-05-06T08:38:39+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti8\"}","email":"sirensym8@gmail.com","time":"2024-05-06T08:38:43+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti9\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:38:48+07:00","message":"enqueued task"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti9\"}","queue":"critical","max_retry":10,"time":"2024-05-06T08:38:48+07:00","message":"enqueued task"}
+{"level":"info","protocol":"grpc","method":"/pb.Booknest/CreateUser","status_code":0,"status_text":"OK","duration":72.251668,"time":"2024-05-06T08:38:48+07:00","message":"received a gRPC request"}
+{"level":"info","type":"task:save_to_excel","payload":"{\"username\":\"mokosakti9\"}","email":"sirensym9@gmail.com","time":"2024-05-06T08:38:59+07:00","message":"processed task"}
+{"level":"info","type":"task:send_verify_email","payload":"{\"username\":\"mokosakti9\"}","email":"sirensym9@gmail.com","time":"2024-05-06T08:39:02+07:00","message":"processed task"}
